@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.Color;
 
 
-public class main extends Canvas {
+public class Assignment8 extends Canvas {
 
     final int ALIVE=1;
     final int DEAD=0;
@@ -19,7 +19,7 @@ public class main extends Canvas {
     public static void main (String[] args) {
         JFrame frame = new JFrame("Cellular Automata"); //give screen a name
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        main canvas = new main();
+        Assignment8 canvas = new Assignment8();
         // Sets the size of the screen
         // See https://docs.oracle.com/javase/9/docs/api/javafx/scene/canvas/Canvas.html
         canvas.setSize(screenSize, screenSize);
