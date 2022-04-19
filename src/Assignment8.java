@@ -296,7 +296,7 @@ public class Assignment8 extends Canvas {
         agentX.getContentDisplay();
         System.out.println(agentX);
 
-        Label agentY = new Label("Longest Combo: 0 ");
+        Label agentY = new Label("time: ");
 
         HBox hBox = new HBox(hBoxLabelSpacing,agentX,agentY);
         agentY.setAlignment(Pos.BASELINE_CENTER);
