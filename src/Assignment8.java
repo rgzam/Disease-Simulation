@@ -1,11 +1,13 @@
-import java.awt.Canvas;
-import java.awt.Graphics;
+import java.awt.*;
+import java.io.File;
+import java.util.ArrayList;
 import javax.swing.*;
-import java.awt.Color;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 
 
 public class Assignment8 extends Canvas {
-
+    int hBoxLabelSpacing = 165;
     static int screenSize=1000;
     static int cellSize=10;
     static int arraySize=screenSize/cellSize;
@@ -16,6 +18,8 @@ public class Assignment8 extends Canvas {
     final int DEAD=4;
     final int INFECTED = 2;
     final int RECOVERED = 3;
+
+    private static int dead;
 
     final Color ALIVE_COLOR = Color.GREEN;
     final Color Empty_Color = Color.WHITE;
@@ -46,6 +50,7 @@ public class Assignment8 extends Canvas {
         frame.setResizable(false);
 
         canvas.myMethod();  //This calls the method myMethod
+
     }
 
     /**
@@ -276,6 +281,15 @@ public class Assignment8 extends Canvas {
 
     }
 
+    public int getDEAD(){
+        return DEAD;
+    }
+  //  public HBox label() {
+   //     Label AgentX = new Label("Human Died" + getDEAD());
+   //     AgentX.getContentDisplay();
+   //     System.out.println(AgentX);
+
+  //  }
 
     /**
      * This method reduces flickering of the display
@@ -283,5 +297,24 @@ public class Assignment8 extends Canvas {
      */
     public void update(Graphics g) {
         paint(g);
+    }
+    public void restartApplication()
+    {
+        final String javaBin = System.getProperty("java.home") + File.separator + "bin" + File.separator + "java";
+       // final File currentJar = new File(.class.getProtectionDomain().getCodeSource().getLocation().toURI());
+
+        /* is it a jar file? */
+       // if(!currentJar.getName().endsWith(".jar"))
+            return;
+
+        /* Build command: java -jar application.jar */
+      //  final ArrayList<String> command = new ArrayList<String>();
+     //   command.add(javaBin);
+     //  command.add("-jar");
+     //   command.add(currentJar.getPath());
+
+     //   final ProcessBuilder builder = new ProcessBuilder(command);
+     //   builder.start();
+    //    System.exit(0);
     }
 }
