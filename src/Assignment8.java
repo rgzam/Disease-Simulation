@@ -2,6 +2,11 @@ import java.awt.*;
 import java.io.File;
 import java.util.ArrayList;
 import javax.swing.*;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 
@@ -11,7 +16,7 @@ public class Assignment8 extends Canvas {
     static int screenSize=1000;
     static int cellSize=10;
     static int arraySize=screenSize/cellSize;
-
+    int fontSize = 25;
 
     final int ALIVE=1;
     final int Empty = 0;
@@ -280,16 +285,27 @@ public class Assignment8 extends Canvas {
         return ALIVE;
 
     }
-
+    public Font setFontt(){
+        return  Font.font("Sans", FontWeight.MEDIUM, fontSize = 25);
+    }
     public int getDEAD(){
         return DEAD;
     }
-  //  public HBox label() {
-   //     Label AgentX = new Label("Human Died" + getDEAD());
-   //     AgentX.getContentDisplay();
-   //     System.out.println(AgentX);
+    public HBox label() {
+        Label agentX = new Label("Human Died" + getDEAD());
+        agentX.getContentDisplay();
+        System.out.println(agentX);
 
-  //  }
+        Label agentY = new Label("Longest Combo: 0 ");
+
+        HBox hBox = new HBox(hBoxLabelSpacing,agentX,agentY);
+        agentY.setAlignment(Pos.BASELINE_CENTER);
+        System.out.println(agentY);
+       // agentY.setFont(new gameOfLifeRule.Font);
+        agentY.setPadding(new Insets(0,0,15,0));
+        return  (hBox);
+
+    }
 
     /**
      * This method reduces flickering of the display
@@ -316,5 +332,8 @@ public class Assignment8 extends Canvas {
      //   final ProcessBuilder builder = new ProcessBuilder(command);
      //   builder.start();
     //    System.exit(0);
+    }
+
+    private class gameOfLifeRule {
     }
 }
