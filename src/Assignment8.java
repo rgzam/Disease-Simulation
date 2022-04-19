@@ -12,13 +12,13 @@ public class Assignment8 extends Canvas {
 
 
     final int ALIVE=1;
-    final int Healthy = 0;
+    final int Empty = 0;
     final int DEAD=4;
     final int INFECTED = 2;
     final int RECOVERED = 3;
 
     final Color ALIVE_COLOR = Color.GREEN;
-    final Color Healthy_Color = Color.WHITE;
+    final Color Empty_Color = Color.WHITE;
     final Color INFECTED_COLOR = Color.RED;
     final Color RECOVERED_COLOR = Color.BLUE;
     final Color DEAD_COLOR = Color.BLACK;
@@ -70,8 +70,8 @@ public class Assignment8 extends Canvas {
                 if (currentStates[i][j] == RECOVERED) {
                     g.setColor(RECOVERED_COLOR);
                 }
-                if (currentStates[i][j] == Healthy) {
-                    g.setColor(Healthy_Color);
+                if (currentStates[i][j] == Empty) {
+                    g.setColor(Empty_Color);
                 }
                 g.fillRect(cellSize*j,cellSize*i,cellSize,cellSize);
                 g.setColor(GRID_COLOR);
@@ -157,12 +157,19 @@ public class Assignment8 extends Canvas {
 //            }
 //        }
 
-        for (int i = 45; i < 50; i++) {
-            for (int j = 45; j < 50; j++) {
+//        for (int i = 45; i < 50; i++) {
+//            for (int j = 45; j < 50; j++) {
+//                currentStates[i][j] = INFECTED;
+//            }
+//        }
+
+
+
+        for (int i = 0; i < 100; i++) {
+            for (int j = 0; j < 100; j++) {
                 currentStates[i][j] = INFECTED;
             }
         }
-
 
 //        currentStates[50][50] = INFECTED;
 
@@ -265,7 +272,7 @@ public class Assignment8 extends Canvas {
         if (currentStates[row][column] == RECOVERED)
             return RECOVERED;
 
-        return Healthy;
+        return ALIVE;
 
     }
 
