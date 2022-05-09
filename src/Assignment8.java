@@ -1,17 +1,16 @@
 import java.awt.*;
 import java.io.File;
-import java.util.ArrayList;
 import javax.swing.*;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
+//import javafx.scene.text.Font;
+//import javafx.scene.text.FontWeight;
+//
+//import javafx.geometry.Insets;
+//import javafx.geometry.Pos;
+//import javafx.scene.control.Label;
+//import javafx.scene.layout.HBox;
 
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
 
-
-public class Assignment8 extends Canvas {
+public class DiseasesSimulation extends Canvas {
     int hBoxLabelSpacing = 165;
     static int screenSize=1000;
     static int cellSize=10;
@@ -23,13 +22,10 @@ public class Assignment8 extends Canvas {
     final int DEAD=4;
     final int INFECTED = 2;
     final int RECOVERED = 3;
-
-    private static int dead;
-
-    final Color ALIVE_COLOR = Color.GREEN;
+    final Color ALIVE_COLOR = Color.BLUE;
     final Color Empty_Color = Color.WHITE;
     final Color INFECTED_COLOR = Color.RED;
-    final Color RECOVERED_COLOR = Color.BLUE;
+    final Color RECOVERED_COLOR = Color.GREEN;
     final Color DEAD_COLOR = Color.BLACK;
     final Color GRID_COLOR = new Color(50, 50, 50);
 
@@ -40,9 +36,9 @@ public class Assignment8 extends Canvas {
     int[][] lastStates=new int[arraySize][arraySize];
 
     public static void main (String[] args) {
-        JFrame frame = new JFrame("Cellular Automata"); //give screen a name
+        JFrame frame = new JFrame("Disease Simulator"); //give screen a name
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Assignment8 canvas = new Assignment8();
+        DiseasesSimulation canvas = new DiseasesSimulation();
         // Sets the size of the screen
         // See https://docs.oracle.com/javase/9/docs/api/javafx/scene/canvas/Canvas.html
         canvas.setSize(screenSize, screenSize);
@@ -57,6 +53,20 @@ public class Assignment8 extends Canvas {
         canvas.myMethod();  //This calls the method myMethod
 
     }
+    void randomInitialization() {
+
+        //set every cell to be alive
+        for(int i=0; i<arraySize; i++){
+            for(int j=0; j<arraySize; j++){
+                currentStates[i][j]=ALIVE;
+            }
+        }
+        //staring one infect cells in the center
+        currentStates[50][50] = INFECTED;
+
+
+
+    }
 
     /**
      * This method draws things on the screen.
@@ -68,20 +78,21 @@ public class Assignment8 extends Canvas {
     public void paint(Graphics g) {
         for(int i=0; i<arraySize;i++){
             for(int j=0; j<arraySize;j++){
+
                 if (currentStates[i][j] == ALIVE) {
                     g.setColor(ALIVE_COLOR);
-                }
-                if (currentStates[i][j] == DEAD) {
-                    g.setColor(DEAD_COLOR);
                 }
                 if (currentStates[i][j] == INFECTED) {
                     g.setColor(INFECTED_COLOR);
                 }
+                if (currentStates[i][j] == Empty) {
+                    g.setColor(Empty_Color);
+                }
                 if (currentStates[i][j] == RECOVERED) {
                     g.setColor(RECOVERED_COLOR);
                 }
-                if (currentStates[i][j] == Empty) {
-                    g.setColor(Empty_Color);
+                if (currentStates[i][j] == DEAD) {
+                    g.setColor(DEAD_COLOR);
                 }
                 g.fillRect(cellSize*j,cellSize*i,cellSize,cellSize);
                 g.setColor(GRID_COLOR);
@@ -92,10 +103,7 @@ public class Assignment8 extends Canvas {
     }
 
     /**
-     * This method includes some `-+
-     * functionality that you will want
-     * to include in your code. Feel free
-     * to rename or delete this method
+     *set the initlization and the current state and next state
      */
     public void myMethod () {
         randomInitialization();
@@ -107,7 +115,7 @@ public class Assignment8 extends Canvas {
 
             for (int i = 1; i < arraySize - 1; i++) {
                 for (int j = 1; j < arraySize - 1; j++) {
-                    nextStates[i][j] = gameOfLifeRule(i, j);
+                    nextStates[i][j] = simulationRules(i, j);
 
                 }
             }
@@ -158,34 +166,6 @@ public class Assignment8 extends Canvas {
     }
 
 
-    void randomInitialization() {
-
-
-//        for (int i = 0; i < arraySize; i++) {
-//            for (int j = 0; j < arraySize; j++) {
-//                currentStates[i][j] = (int) (Math.random() * 2);
-//            }
-//        }
-
-//        for (int i = 45; i < 50; i++) {
-//            for (int j = 45; j < 50; j++) {
-//                currentStates[i][j] = INFECTED;
-//            }
-//        }
-
-
-
-        for (int i = 0; i < 100; i++) {
-            for (int j = 0; j < 100; j++) {
-                currentStates[i][j] = INFECTED;
-            }
-        }
-
-//        currentStates[50][50] = INFECTED;
-
-
-
-    }
 
     void blinker(){
         for(int i=0; i<arraySize;i++){
@@ -194,55 +174,12 @@ public class Assignment8 extends Canvas {
 
             }
         }
-        currentStates[arraySize/2 - 1][arraySize/2]=ALIVE;
-        currentStates[arraySize/2][arraySize/2]=ALIVE;
-        currentStates[arraySize/2+1][arraySize/2]=ALIVE;
     }
-//    int gameOfLifeRule(int row, int column){
-////        int neighborSum=currentStates[row-1][column]+currentStates[row-1][column+1]+
-////                currentStates[row][column-1]+currentStates[row-1][column+1]+currentStates[row+1][column-1]+
-////                currentStates[row+1][column]+currentStates[row+1][column+1];
-//        int neighborSum=currentStates[row-1][column-1]+currentStates[row-1][column]
-//                +currentStates[row-1][column+1]+currentStates[row][column-1]
-//                +currentStates[row][column+1]+currentStates[row+1][column-1]
-//                +currentStates[row+1][column]+currentStates[row+1][column+1];
-//        if(currentStates[row][column]==ALIVE && neighborSum==1 || neighborSum==2 || neighborSum==4 )
-//            return ALIVE;
-//        if(currentStates[row][column]==DEAD && neighborSum==1 || neighborSum==2 || neighborSum==4 )
-//            return DEAD;
-//
-//        else if(currentStates[row][column]==ALIVE && neighborSum==5 ||neighborSum==6||neighborSum==7||neighborSum==8)
-//            return DEAD;
-//
-//        else if(currentStates[row][column]==ALIVE && neighborSum==3)
-//            return ALIVE;
-//        else if(currentStates[row][column]==DEAD && neighborSum==3)
-//            return ALIVE;
-//        else
-//            return DEAD;
-//    }
 
-    int gameOfLifeRule(int row, int column) {
+    int simulationRules(int row, int column) {
 
 
-
-        int neighborSum=currentStates[row-1][column-1]+currentStates[row-1][column]
-                +currentStates[row-1][column+1]+currentStates[row][column-1]
-                +currentStates[row][column+1]+currentStates[row+1][column-1]
-                +currentStates[row+1][column]+currentStates[row+1][column+1];
-        if(currentStates[row][column]==INFECTED && neighborSum==1 || neighborSum==2 || neighborSum==4 )
-            return INFECTED;
-        if(currentStates[row][column]==DEAD && neighborSum==1 || neighborSum==2 || neighborSum==4 )
-            return DEAD;
-
-        else if(currentStates[row][column]==ALIVE && neighborSum==5 ||neighborSum==6||neighborSum==7||neighborSum==8)
-            return DEAD;
-
-        else if(currentStates[row][column]==ALIVE && neighborSum==3)
-            return ALIVE;
-        else if(currentStates[row][column]==DEAD && neighborSum==3)
-            return ALIVE;
-        else if (currentStates[row][column] == ALIVE){
+        if (currentStates[row][column] == ALIVE){
             //count number of INFECTED neighbors
             int infectedNeighbors=0;
             for (int i=row-1; i<=row+1;i++){
@@ -250,13 +187,14 @@ public class Assignment8 extends Canvas {
                     if (!(i==row && j==column)) {
                         if (currentStates[i][j] == INFECTED) {
                             infectedNeighbors++;
+                            System.out.println("number of infected: "+infectedNeighbors);
+
                         }
                     }
                 }
             }
-            //compute rule and return next state for cell
-            //healthy cell has probability of becoming infected equal to 15% times it's number of infected neighbors, or
-            //a 100% chance with 7 or more infected neighbors
+
+            // healthy cell has 15 percent chance infected by the infected neighbor.
             double infectedRisk = (Math.random()*100);
             if (infectedRisk <= 15*infectedNeighbors){
                 return INFECTED;
@@ -266,9 +204,8 @@ public class Assignment8 extends Canvas {
         }
 
 
-
-        if (currentStates[row][column] == INFECTED){//infected cell has 70% chance of staying infected, 15% chance of dying,
-            //and 15% chance of recovering
+        //infected cell has 15 percent chance of dying and 70 percent of chance of staying infected.
+        if (currentStates[row][column] == INFECTED){
             double diceRoll = (Math.random()*100);
             if (diceRoll < 70)
                 return INFECTED;
@@ -285,27 +222,27 @@ public class Assignment8 extends Canvas {
         return ALIVE;
 
     }
-    public Font setFontt(){
-        return  Font.font("Sans", FontWeight.MEDIUM, fontSize = 25);
-    }
-    public int getDEAD(){
-        return DEAD;
-    }
-    public HBox label() {
-        Label agentX = new Label("Human Died" + getDEAD());
-        agentX.getContentDisplay();
-        System.out.println(agentX);
-
-        Label agentY = new Label("time: ");
-
-        HBox hBox = new HBox(hBoxLabelSpacing,agentX,agentY);
-        agentY.setAlignment(Pos.BASELINE_CENTER);
-        System.out.println(agentY);
-       // agentY.setFont(new gameOfLifeRule.Font);
-        agentY.setPadding(new Insets(0,0,15,0));
-        return  (hBox);
-
-    }
+//    public Font setFontt(){
+//        return  Font.font("Sans", FontWeight.MEDIUM, fontSize = 25);
+//    }
+//    public int getDEAD(){
+//        return DEAD;
+//    }
+//    public HBox label() {
+//        Label agentX = new Label("Human Died" + getDEAD());
+//        agentX.getContentDisplay();
+//        System.out.println(agentX);
+//
+//        Label agentY = new Label("time: ");
+//
+//        HBox hBox = new HBox(hBoxLabelSpacing,agentX,agentY);
+//        agentY.setAlignment(Pos.BASELINE_CENTER);
+//        System.out.println(agentY);
+//       // agentY.setFont(new gameOfLifeRule.Font);
+//        agentY.setPadding(new Insets(0,0,15,0));
+//        return  (hBox);
+//
+//    }
 
     /**
      * This method reduces flickering of the display
