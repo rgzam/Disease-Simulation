@@ -8,43 +8,25 @@ import java.util.Scanner;
 
 public class configPropertyValues {
 
-      String result = " ";
-         InputStream inputStream;
-          public String getPropValues() throws IOException {
+    public configPropertyValues() {
+        dimWidth = 200;
+        dimHeight = 200;
+        exposureDistance = 20;
+        incubation = 5;
+        sickness = 10;
+        recover = 0.95;
+        initSick = 1;
+        initImmune = 0;
+        unitTime = 150;
+    }
 
-             try {
-                  Properties prop = new Properties();
-                  String propFileName = "config.properties";
+    public int dimWidth, dimHeight; //Dimensions of board
+    public int exposureDistance;
+    public int incubation; //Time it takes until sick
+    public int sickness; //Time the agent is sick
+    public double recover; //Chance for agent to recover :: (1-recover) = chance to die
+    public int initSick; //How many agents are sick from the start?
+    public int initImmune; //How many agents are immune from the start?
 
-                  inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
-
-                  if (inputStream != null) {
-                      prop.load(inputStream);
-                  } else {
-                      throw new FileNotFoundException("property file '" + propFileName + "' not found in the classpath");
-                  }
-
-                  Date time = new Date(System.currentTimeMillis());
-
-                  // get the property value and print it out
-                 String dimensions = prop.getProperty("dimensions","200,200");
-                  String exposuredistance = prop.getProperty("exposuredistance","20");
-                  String incubation = prop.getProperty("incubation","5");
-                  String sickness = prop.getProperty("sickness","10");
-                  String recover = prop.getProperty("recover","0.95");
-                  String grid = prop.getProperty("grid");
-                  String random = prop.getProperty("random");
-                  String randomgrid = prop.getProperty("randomgrid");
-                  String initialsick = prop.getProperty("initialsick","1");
-
-
-             } catch (Exception e) {
-                  System.out.println("Exception: " + e);
-             } finally {
-                  inputStream.close();
-              }
-             return result;
-          }
-      }
-
-
+    public int unitTime;
+}
