@@ -1,7 +1,9 @@
 # Disease Simulation
 ## How to play
 In order to run the file one must specify the test files if not specified it will run the 
-default values. The purpose of this program is to model the spread of a disease through a
+default values. To run the config from the jar you must hit the command java Disease.jar test1.txt
+to run the first test from the config files.The purpose of this program is to model the 
+spread of a disease through a
 population. The representation can be humans, rabbits, birds, etc. and the disease could be 
 spread via physical contact, airborne, fluids, etc.
 The program will have diferent colors representing their state Blue is Alive, Green is was infected
