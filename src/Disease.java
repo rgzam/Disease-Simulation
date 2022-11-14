@@ -1,32 +1,56 @@
-import java.awt.*;
-import java.io.File;
+import java.awt.Canvas;
+import java.awt.Graphics;
 import javax.swing.*;
-//import javafx.scene.text.Font;
-//import javafx.scene.text.FontWeight;
-//
-//import javafx.geometry.Insets;
-//import javafx.geometry.Pos;
-//import javafx.scene.control.Label;
-//import javafx.scene.layout.HBox;
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 
-public class DiseasesSimulation extends Canvas {
-    int hBoxLabelSpacing = 165;
+public class Disease extends Canvas {
+    protected static configPropertyValues config = new configPropertyValues();
+    static int width =200;
+    static int height = 200;
+    protected static int exposureDistance = 20;
+    protected static int incubation = 5;
+    protected static int sickness = 0;
+    protected static int recover = 95;
+    protected static boolean grid = true;
+
+    protected static boolean random = false;
+
+    protected static boolean randomGrid = false;
+    protected static int row = 10;
+    protected static int col = 10;
+    protected static int numAgents = row * col;
+    protected static int initialSick = 5;
+    protected static int initialImmune = 0;
+    protected static int distance = 0;
+    protected static java.util.List<Integer> startingSickAgents = new ArrayList<Integer>();
+
+    protected static List<Integer> startingImmuneAgents = new ArrayList<Integer>();
+
+    protected static int delay = 0;
     static int screenSize=1000;
     static int cellSize=10;
     static int arraySize=screenSize/cellSize;
-    int fontSize = 25;
+
+
 
     final int ALIVE=1;
     final int Empty = 0;
     final int DEAD=4;
     final int INFECTED = 2;
     final int RECOVERED = 3;
+    int getRECOVERED;
+    int getDEAD;
+    int getAlive;
+
     final Color ALIVE_COLOR = Color.BLUE;
     final Color Empty_Color = Color.WHITE;
+    final Color DEAD_COLOR = Color.BLACK;
     final Color INFECTED_COLOR = Color.RED;
     final Color RECOVERED_COLOR = Color.GREEN;
-    final Color DEAD_COLOR = Color.BLACK;
     final Color GRID_COLOR = new Color(50, 50, 50);
 
 
@@ -36,38 +60,124 @@ public class DiseasesSimulation extends Canvas {
     int[][] lastStates=new int[arraySize][arraySize];
 
     public static void main (String[] args) {
-        JFrame frame = new JFrame("Disease Simulator"); //give screen a name
+        System.out.println("Default: ");
+
+        configurationPrint();
+
+        if(args.length == 1){
+
+            config.ingestConfigFile(args[0]);
+
+        }
+
+        System.out.println("\nConfig file: ");
+
+        configurationPrint();
+
+        config.initializeSickAgents();
+
+        System.out.println("Size sick list size: " + startingSickAgents.size());
+
+        for(int i = 0; i < startingSickAgents.size(); i++){
+
+
+            System.out.println("Sick agent: " + startingSickAgents.get(i));
+
+        }
+
+        config.initializeImmuneAgents();
+
+        System.out.println("Size immune list size: " + startingImmuneAgents.size());
+
+        for(int i = 0; i < startingImmuneAgents.size(); i++){
+
+            System.out.println("Immune agent: " + startingImmuneAgents.get(i));
+
+        }
+        JFrame frame = new JFrame("Project 4: Disease Simulation"); //screen a name
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        DiseasesSimulation canvas = new DiseasesSimulation();
-        // Sets the size of the screen
-        // See https://docs.oracle.com/javase/9/docs/api/javafx/scene/canvas/Canvas.html
+        Disease canvas = new Disease();
+
         canvas.setSize(screenSize, screenSize);
-        // Sets the background color
-        // See https://docs.oracle.com/javase/7/docs/api/java/awt/Color.html
+
         canvas.setBackground(Color.white);
         frame.add(canvas);
         frame.pack();
         frame.setVisible(true);
         frame.setResizable(false);
+        canvas.myMethod();
+    }
+    protected static void configurationPrint(){
 
-        canvas.myMethod();  //This calls the method myMethod
+        System.out.println("width: " + width);
+
+        System.out.println("height: " + height);
+
+        System.out.println("exposure distance: " + exposureDistance);
+
+        System.out.println("incubation: " + incubation);
+
+        System.out.println("sickness: " + sickness);
+
+        System.out.println("recover: " + recover);
+
+        System.out.println("grid? " + grid);
+
+        System.out.println("random? " + random);
+
+        System.out.println("random grid? " + randomGrid);
+
+        System.out.println("row: " + row);
+
+        System.out.println("column: " + col);
+
+        System.out.println("number of agents: " + numAgents);
+
+        System.out.println("initial sick: " + initialSick);
+
+        System.out.println("initial immune: " + initialImmune);
+
+        System.out.println("distance: " + distance);
+
+        System.out.println("delay: " + delay);
 
     }
-    void randomInitialization() {
+    void aliveRandomInitialization() {
 
-        //set every cell to be alive
-        for(int i=0; i<arraySize; i++){
-            for(int j=0; j<arraySize; j++){
-                currentStates[i][j]=ALIVE;
+
+
+        for (int i = 0; i < arraySize; i++) {
+            for (int j = 0; j < arraySize; j++) {
+                currentStates[i][j] = ALIVE;
             }
         }
-        //staring one infect cells in the center
-        currentStates[50][50] = INFECTED;
-
-
 
     }
+    void sicknessRandomInitialization(){
+        Random randomNumber= new Random();
+        int myRandomNumberx=randomNumber.nextInt(arraySize);
+        int myRandomNumbery=randomNumber.nextInt(arraySize);
 
+
+
+        for (int i = 0; i < arraySize; i++) {
+            for (int j = 0; j < arraySize; j++) {
+                currentStates[myRandomNumberx][myRandomNumbery] = INFECTED;
+            }
+        }
+    }
+
+    void blinker(){
+        for(int i=0; i<arraySize;i++){
+            for(int j=0; j<arraySize;j++){
+                currentStates[i][j]=DEAD;
+
+            }
+        }
+        currentStates[arraySize/2 - 1][arraySize/2]=ALIVE;
+        currentStates[arraySize/2][arraySize/2]=ALIVE;
+        currentStates[arraySize/2+1][arraySize/2]=ALIVE;
+    }
     /**
      * This method draws things on the screen.
      * This is where you will write
@@ -78,7 +188,6 @@ public class DiseasesSimulation extends Canvas {
     public void paint(Graphics g) {
         for(int i=0; i<arraySize;i++){
             for(int j=0; j<arraySize;j++){
-
                 if (currentStates[i][j] == ALIVE) {
                     g.setColor(ALIVE_COLOR);
                 }
@@ -103,7 +212,10 @@ public class DiseasesSimulation extends Canvas {
     }
 
     /**
-     *set the initlization and the current state and next state
+     * This method includes some `-+
+     * functionality that you will want
+     * to include in your code. Feel free
+     * to rename or delete this method
      */
     public void myMethod () {
         randomInitialization();
@@ -167,16 +279,10 @@ public class DiseasesSimulation extends Canvas {
 
 
 
-    void blinker(){
-        for(int i=0; i<arraySize;i++){
-            for(int j=0; j<arraySize;j++){
-                currentStates[i][j]=DEAD;
 
-            }
-        }
-    }
 
     int simulationRules(int row, int column) {
+
 
 
         if (currentStates[row][column] == ALIVE){
@@ -187,7 +293,7 @@ public class DiseasesSimulation extends Canvas {
                     if (!(i==row && j==column)) {
                         if (currentStates[i][j] == INFECTED) {
                             infectedNeighbors++;
-                            System.out.println("number of infected: "+infectedNeighbors);
+
 
                         }
                     }
@@ -222,27 +328,7 @@ public class DiseasesSimulation extends Canvas {
         return ALIVE;
 
     }
-//    public Font setFontt(){
-//        return  Font.font("Sans", FontWeight.MEDIUM, fontSize = 25);
-//    }
-//    public int getDEAD(){
-//        return DEAD;
-//    }
-//    public HBox label() {
-//        Label agentX = new Label("Human Died" + getDEAD());
-//        agentX.getContentDisplay();
-//        System.out.println(agentX);
-//
-//        Label agentY = new Label("time: ");
-//
-//        HBox hBox = new HBox(hBoxLabelSpacing,agentX,agentY);
-//        agentY.setAlignment(Pos.BASELINE_CENTER);
-//        System.out.println(agentY);
-//       // agentY.setFont(new gameOfLifeRule.Font);
-//        agentY.setPadding(new Insets(0,0,15,0));
-//        return  (hBox);
-//
-//    }
+
 
     /**
      * This method reduces flickering of the display
@@ -250,27 +336,5 @@ public class DiseasesSimulation extends Canvas {
      */
     public void update(Graphics g) {
         paint(g);
-    }
-    public void restartApplication()
-    {
-        final String javaBin = System.getProperty("java.home") + File.separator + "bin" + File.separator + "java";
-       // final File currentJar = new File(.class.getProtectionDomain().getCodeSource().getLocation().toURI());
-
-        /* is it a jar file? */
-       // if(!currentJar.getName().endsWith(".jar"))
-            return;
-
-        /* Build command: java -jar application.jar */
-      //  final ArrayList<String> command = new ArrayList<String>();
-     //   command.add(javaBin);
-     //  command.add("-jar");
-     //   command.add(currentJar.getPath());
-
-     //   final ProcessBuilder builder = new ProcessBuilder(command);
-     //   builder.start();
-    //    System.exit(0);
-    }
-
-    private class gameOfLifeRule {
     }
 }

@@ -4,11 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="800a7a20-750d-45b1-a6b9-474f5837b1d3" name="Changes" comment="ss">
+    <list default="true" id="800a7a20-750d-45b1-a6b9-474f5837b1d3" name="Changes" comment="changed the config files">
+      <change afterPath="$PROJECT_DIR$/src/Assignment8.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DiseasesSimulation$gameOfLifeRule.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/configPropertyValues.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test2.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Assignment8.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assignment8.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assignment8.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Disease.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DiseasesSimulation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/configPropertyValues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/configPropertyValues.java" afterDir="false" />
     </list>
-    <list id="3e75e717-f484-4812-a647-d12cc97e7bd7" name="Changes by shi" comment="" />
+    <list id="3e75e717-f484-4812-a647-d12cc97e7bd7" name="Changes by shi" comment="">
+      <change beforePath="$PROJECT_DIR$/src/Assignment8.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Disease.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,6 +45,43 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/configPropertyValues.java" root0="SKIP_INSPECTION" />
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/Disease.java">
+      <ranges>
+        <range start1="0" end1="2" start2="0" end2="2" changelist="800a7a20-750d-45b1-a6b9-474f5837b1d3" />
+        <range start1="3" end1="10" start2="3" end2="20" changelist="800a7a20-750d-45b1-a6b9-474f5837b1d3" />
+        <range start1="11" end1="11" start2="21" end2="29" changelist="800a7a20-750d-45b1-a6b9-474f5837b1d3" />
+        <range start1="12" end1="14" start2="30" end2="33" changelist="800a7a20-750d-45b1-a6b9-474f5837b1d3" />
+        <range start1="17" end1="18" start2="36" end2="38" changelist="800a7a20-750d-45b1-a6b9-474f5837b1d3" />
+        <range start1="24" end1="24" start2="44" end2="48" changelist="800a7a20-750d-45b1-a6b9-474f5837b1d3" />
+        <range start1="26" end1="26" start2="50" end2="51" changelist="800a7a20-750d-45b1-a6b9-474f5837b1d3" />
+        <range start1="28" end1="29" start2="53" end2="53" changelist="800a7a20-750d-45b1-a6b9-474f5837b1d3" />
+        <range start1="38" end1="39" start2="62" end2="97" changelist="800a7a20-750d-45b1-a6b9-474f5837b1d3" />
+        <range start1="40" end1="43" start2="98" end2="100" changelist="800a7a20-750d-45b1-a6b9-474f5837b1d3" />
+        <range start1="44" end1="46" start2="101" end2="102" changelist="800a7a20-750d-45b1-a6b9-474f5837b1d3" />
+        <range start1="51" end1="51" start2="107" end2="124" changelist="800a7a20-750d-45b1-a6b9-474f5837b1d3" />
+        <range start1="52" end1="53" start2="125" end2="142" changelist="800a7a20-750d-45b1-a6b9-474f5837b1d3" />
+        <range start1="55" end1="56" start2="144" end2="146" changelist="800a7a20-750d-45b1-a6b9-474f5837b1d3" />
+        <range start1="57" end1="61" start2="147" end2="151" changelist="800a7a20-750d-45b1-a6b9-474f5837b1d3" />
+        <range start1="63" end1="65" start2="153" end2="153" changelist="800a7a20-750d-45b1-a6b9-474f5837b1d3" />
+        <range start1="66" end1="66" start2="154" end2="159" changelist="800a7a20-750d-45b1-a6b9-474f5837b1d3" />
+        <range start1="68" end1="68" start2="161" end2="167" changelist="800a7a20-750d-45b1-a6b9-474f5837b1d3" />
+        <range start1="70" end1="70" start2="169" end2="180" changelist="800a7a20-750d-45b1-a6b9-474f5837b1d3" />
+        <range start1="80" end1="81" start2="190" end2="190" changelist="800a7a20-750d-45b1-a6b9-474f5837b1d3" />
+        <range start1="103" end1="103" start2="212" end2="231" changelist="3e75e717-f484-4812-a647-d12cc97e7bd7" />
+        <range start1="105" end1="106" start2="233" end2="237" changelist="800a7a20-750d-45b1-a6b9-474f5837b1d3" />
+        <range start1="108" end1="109" start2="239" end2="244" changelist="3e75e717-f484-4812-a647-d12cc97e7bd7" />
+        <range start1="169" end1="173" start2="304" end2="304" changelist="800a7a20-750d-45b1-a6b9-474f5837b1d3" />
+        <range start1="174" end1="177" start2="305" end2="305" changelist="800a7a20-750d-45b1-a6b9-474f5837b1d3" />
+        <range start1="181" end1="181" start2="309" end2="310" changelist="800a7a20-750d-45b1-a6b9-474f5837b1d3" />
+        <range start1="189" end1="190" start2="318" end2="319" changelist="800a7a20-750d-45b1-a6b9-474f5837b1d3" />
+        <range start1="213" end1="214" start2="342" end2="343" changelist="3e75e717-f484-4812-a647-d12cc97e7bd7" />
+        <range start1="224" end1="245" start2="353" end2="354" changelist="800a7a20-750d-45b1-a6b9-474f5837b1d3" />
+        <range start1="251" end1="251" start2="360" end2="361" changelist="3e75e717-f484-4812-a647-d12cc97e7bd7" />
+        <range start1="253" end1="277" start2="363" end2="364" changelist="800a7a20-750d-45b1-a6b9-474f5837b1d3" />
+      </ranges>
+    </file>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -53,26 +99,53 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/Tiles" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ricardo\Desktop\project_4\src" />
       <recent name="C:\Users\Ricardo\Desktop\Disease Simulation" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="Assignment8" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Assignment8" />
+  <component name="RunManager" selected="JAR Application.Disease.jar">
+    <configuration name="Disease" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Disease" />
       <module name="Disease Simulation" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DiseasesSimulation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DiseasesSimulation" />
+      <module name="Disease Simulation" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Disease Simulation" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Disease Simulation.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/Disease_Simulation_jar/Disease Simulation.jar" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Disease.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/Disease.jar" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Assignment8" />
+        <item itemvalue="JAR Application.Disease.jar" />
+        <item itemvalue="JAR Application.Disease Simulation.jar" />
+        <item itemvalue="Application.Disease" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.DiseasesSimulation" />
       </list>
     </recent_temporary>
   </component>
@@ -141,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650347215530</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="changed the config files">
+      <created>1668302370388</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1668302370388</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -161,6 +241,7 @@
     <MESSAGE value="design" />
     <MESSAGE value="skel" />
     <MESSAGE value="ss" />
-    <option name="LAST_COMMIT_MESSAGE" value="ss" />
+    <MESSAGE value="changed the config files" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed the config files" />
   </component>
 </project>
