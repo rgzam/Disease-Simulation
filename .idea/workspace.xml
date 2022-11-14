@@ -9,9 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="800a7a20-750d-45b1-a6b9-474f5837b1d3" name="Changes" comment="push">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-    </list>
+    <list default="true" id="800a7a20-750d-45b1-a6b9-474f5837b1d3" name="Changes" comment="push" />
     <list id="3e75e717-f484-4812-a647-d12cc97e7bd7" name="Changes by shi" comment="Changes by shi" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -248,7 +246,28 @@
       <option name="project" value="LOCAL" />
       <updated>1668411211800</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="push">
+      <created>1668412888988</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1668412888988</updated>
+    </task>
+    <task id="LOCAL-00020" summary="push">
+      <created>1668412986508</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1668412986508</updated>
+    </task>
+    <task id="LOCAL-00021" summary="push">
+      <created>1668413038927</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1668413038927</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
