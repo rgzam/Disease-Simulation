@@ -10,8 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="800a7a20-750d-45b1-a6b9-474f5837b1d3" name="Changes" comment="push">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/.gitignore" afterDir="false" />
     </list>
     <list id="3e75e717-f484-4812-a647-d12cc97e7bd7" name="Changes by shi" comment="Changes by shi" />
     <option name="SHOW_DIALOG" value="false" />
@@ -284,7 +283,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668413295323</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="push">
+      <created>1668413871378</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1668413871378</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
