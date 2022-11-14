@@ -210,6 +210,25 @@ public class Disease extends Canvas {
         }
 
     }
+    public void counting(){
+        for(int i=0; i<arraySize;i++){
+            for(int j=0; j<arraySize;j++) {
+                if (currentStates[i][j] == INFECTED){
+                    sickness++;
+
+                    System.out.println("sickness: "+ sickness);
+                }
+                if(currentStates[i][j] == RECOVERED){
+                    getRECOVERED++;
+                    sickness--;
+                    System.out.println("Recovered: "+getRECOVERED);
+                }
+
+
+
+            }
+            }
+    }
 
     /**
      * This method includes some `-+
@@ -218,7 +237,11 @@ public class Disease extends Canvas {
      * to rename or delete this method
      */
     public void myMethod () {
-        randomInitialization();
+
+        aliveRandomInitialization();
+        for(int i=0; i<initialSick; i++){
+            sicknessRandomInitialization();
+        }
         int count=0;
 
 
@@ -317,7 +340,7 @@ public class Disease extends Canvas {
                 return INFECTED;
             if (diceRoll > 70 && diceRoll < 85)
                 return DEAD;
-            if (diceRoll > 85)
+            if (diceRoll < 95)
                 return RECOVERED;
         }
         if (currentStates[row][column] == DEAD)
@@ -335,6 +358,7 @@ public class Disease extends Canvas {
      * Don't change it.
      */
     public void update(Graphics g) {
+
         paint(g);
     }
 }
